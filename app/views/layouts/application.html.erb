@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Tutu</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <%= yield %>
+    <p>
+      Создателем этой шаблонной страницы является Бадичан Полина.
+      Учебный проект в <a href="http://www.thinknetica.com/"> онлайн-школе Thinknetica </a>
+    </p>
+  </body>
+</html>
