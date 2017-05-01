@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Тип:</strong>
+  <%= @car.car_type.name %>
+</p>
+
+<p>
+  <strong>Верхние места:</strong>
+  <% if @car.top_places.present? %>
+    <%= @car.top_places %>
+  <% else %>
+    Не указано
+  <% end %>
+</p>
+
+<p>
+  <strong>Нижние места:</strong>
+  <% if @car.bottom_places.present? %>
+    <%= @car.bottom_places %>
+  <% else %>
+    Не указано
+  <% end %>
+</p>
+
+<p>
+  <strong>Поезд:</strong>
+  <% if @car.train.present? %>
+    <%= @car.train.number %>
+  <% else %>
+    Не указан
+  <% end %>
+</p>
+
+
+<%= link_to 'Редактировать', edit_car_path(@car) %> |
+<%= link_to 'Назад', cars_path %>

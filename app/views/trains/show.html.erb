@@ -23,5 +23,27 @@
   <% end %>
 </p>
 
+<p>
+<table style="width:50%">
+  <tr>
+    <th> Вагон </th>
+    <th>Верхние места:</th>
+    <th>Нижние места:</th>
+  </tr>
+    <% @train.cars.each do |car| %>
+  <tr>
+    <th><%= car.car_type.name %></th>
+    <th><%= car.top_places %></th>
+    <th><%= car.bottom_places %></th>
+  </tr>
+  <% end %>
+</table>
+
+<style>
+table, th, td {
+    border: 1px solid black;
+}
+</style>
+</p>
 <%= link_to 'Редактировать', edit_train_path(@train) %> |
 <%= link_to 'Назад', trains_path %>
