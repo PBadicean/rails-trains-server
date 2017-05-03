@@ -9,6 +9,9 @@
   </head>
 
   <body>
+    <%- unless current_page?(root_url) %>
+      <%= link_to('На главную', root_path) %>
+    <%- end %>
     <%= yield %>
     <p>
       Создателем этой шаблонной страницы является Бадичан Полина.
