@@ -16,16 +16,23 @@
   <% end %>
 </p>
 
+
 <p>
   <strong> Список станций: </strong>
-  <% if @route.railway_stations.present? %>
-    <% @route.railway_stations.each do |railway_station| %>
-        <tr><%= railway_station.title %></tr>
-    <% end %>
-  <% else %>
+</p>
+
+<p>
+  <% if @route.railway_stations.empty? %>
     В маршруте не указаны станции
+  <% else %>
+    <ul>
+      <% @route.railway_stations_routes.ordered.each do |station_route|%>
+        <li><%= station_route.railway_station.title%></li>
+      <% end %>
+    </ul>
   <% end %>
 </p>
+
 
 <%= link_to 'Редактировать', edit_route_path(@route) %> |
 <%= link_to 'Назад', routes_path %>

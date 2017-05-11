@@ -1,6 +1,8 @@
+<% @cars.each do |car| %>
 <tr>
-  <td><%= car.car_type.name %></td>
-  <td><%= link_to 'Паказать', car %></td>
+  <td><%= car.type %></td>
+  <td><%= link_to 'Паказать', car_path(car) %></td>
   <td><%= link_to 'Редактировать', edit_car_path(car) %></td>
-  <td><%= link_to 'Удалить', car, method: :delete, data: { confirm: 'Вы уверены?' } %></td>
+  <td><%= link_to 'Удалить', car_path(car), method: :delete, data: { confirm: 'Вы уверены?' } %></td>
 </tr>
+<% end %>

@@ -1,2 +1,0 @@
-class CarType < ApplicationRecord
-end
