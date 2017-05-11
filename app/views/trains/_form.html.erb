@@ -16,6 +16,11 @@
     <%= f.collection_select :route_id, Route.all, :id, :name %>
   </div>
 
+  <div class="field">
+    <%= f.label :choice, 'Выбор сортировки' %>
+    <%= f.select :choice, [['С головы', true], ['С хвоста', false]]  %>
+  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>
