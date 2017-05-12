@@ -1,10 +1,11 @@
 class Car < ApplicationRecord
-  belongs_to :train
   scope :sort_numbers, ->(sort) { sort ? order(:number) : order(number: :desc) }
 
-  before_save :set_number
+  belongs_to :train
 
   validates :number, uniqueness: :true
+
+  before_save :set_number
 
   private
 
