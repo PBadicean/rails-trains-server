@@ -8,20 +8,18 @@
 <p>
   <strong>Список поездов:</strong>
   <% if @route.trains.present? %>
-    <% @route.trains.each do |train| %>
-        <tr><%= train.number %></tr>
+    <ul>
+      <% @route.trains.each do |train| %>
+        <li><%= train.number %></li>
     <% end %>
+    </ul>
   <% else %>
     На данном маршруте ни одного поезда
   <% end %>
 </p>
 
-
 <p>
   <strong> Список станций: </strong>
-</p>
-
-<p>
   <% if @route.railway_stations.empty? %>
     В маршруте не указаны станции
   <% else %>
