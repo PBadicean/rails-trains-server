@@ -1,21 +1,23 @@
 class CarsController < ApplicationController
-  before_action :set_car, only: [:show, :edit, :update, :destroy]
+  before_action :set_car, only: [ :show, :edit, :update, :destroy]
+  before_action :set_train, only: [:new, :create]
+
+  def new
+    @car = Car.new
+  end
 
   def index
     @cars = Car.all
   end
 
   def show
-  end
-
-  def new
-    @car = Car.new
+    @car = Car.find(params[:id])
   end
 
   def create
-    @car = Car.new(car_params)
+    @car = @train.cars.new(car_params)
     if @car.save
-      redirect_to car_path(@car)
+      redirect_to @train
     else
       render :new
     end
@@ -26,7 +28,7 @@ class CarsController < ApplicationController
 
   def update
     if @car.update(car_params)
-      redirect_to car_path(@car)
+      redirect_to @train
     else
       render :edit
     end
@@ -37,7 +39,11 @@ class CarsController < ApplicationController
     redirect_to cars_path
   end
 
-  private
+  protected
+
+  def set_train
+    @train = Train.find(params[:train_id])
+  end
 
   def set_car
     @car = Car.find(params[:id])

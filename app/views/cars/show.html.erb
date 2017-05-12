@@ -9,4 +9,4 @@
 
 <%= link_to 'Редактировать', edit_car_path(@car) %>
 <%= link_to 'Назад', cars_path %>
-<%= link_to 'К поезду', train_path(@car.train) %>
+<%= link_to 'К поезду', @car.train %>
