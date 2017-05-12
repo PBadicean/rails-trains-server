@@ -32,10 +32,14 @@
   <% @train.sorted_cars.each do |car| %>
     <tr>
       <th><%= car.type %></th>
-      <th><a href="http://localhost:3000/cars/<%= car.id %>"> <%= car.number %> </a></th>
+      <th><%= link_to "#{car.number}", train_car_path(@train, car) %></a></th>
     </tr>
   <% end %>
 </table>
+</p>
+
+<p>
+  <%= link_to "Добавить вагон", new_train_car_path(@train) %>
 </p>
 
 <%= link_to 'Редактировать', edit_train_path(@train) %> |
