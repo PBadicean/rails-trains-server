@@ -31,11 +31,6 @@
     <%= f.number_field :sedentery_seats %>
   </div>
 
-  <div class="field">
-    <%= f.label :train %>
-    <%= f.collection_select :train_id, Train.all, :id, :number %>
-  </div>
-
   <div class="actions">
     <%= f.submit %>
   </div>
