@@ -1,0 +1,55 @@
+<h1> Поиск билетов <h1>
+
+
+  <table>
+    <thead>
+      <%= form_for 'searches', method: :get do |f|%>
+      <tr>
+       <td>
+       <div class="field">
+          <%= f.label 'начальная станция' %>
+          <%= f.collection_select :start_station_id, RailwayStation.all, :id, :title, include_blank: true %>
+       </div>
+      </td>
+      <td>
+        <div class="field">
+          <%= f.label 'конечная станция' %>
+          <%= f.collection_select :end_station_id, RailwayStation.all, :id, :title, include_blank: true %>
+        </div>
+     </td>
+      <td>
+        <div class="actions">
+          <%= f.submit  "Искать"%>
+        </div>
+      </td>
+
+      </tr>
+      <% end %>
+    </thead>
+  </table>
+
+
+<p>
+<% if @tickets.present? %>
+  <% @tickets.each do |ticket| %>
+    <table>
+      <tr>
+        <td>Отправление</td>
+        <td><%= ticket.train.route.railway_stations_routes.first.arrival_time%></td>
+      </tr>
+      <tr>
+        <td>Прибытие</td>
+        <td><%= ticket.train.route.railway_stations_routes.first.departure_time%></td>
+      </tr>
+      <tr>
+        <td> Список поездов:</td>
+      </tr>
+    </table>
+    <% ticket.train.route.trains.each do |t| %>
+      <ul>
+        <li><%= t.number %></li>
+      </ul>
+    <% end %>
+  <% end %>
+<% end %>
+</p>
