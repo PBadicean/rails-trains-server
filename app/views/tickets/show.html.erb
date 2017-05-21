@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Маршрут:</strong>
+  <%= @ticket.start_station.title %> - <%= @ticket.end_station.title %>
+</p>
+
+<p>
+  <strong>Покупатель</strong>
+    <%= @ticket.first_name %>
+    <%= @ticket.last_name %>
+</p>
+
+<%= link_to 'Назад', tickets_path %>|
+<%= link_to 'Изменить', edit_ticket_path(@ticket) %> |

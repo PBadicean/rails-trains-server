@@ -9,8 +9,8 @@ Rails.application.routes.draw do
   end
   resources :routes
   resources :searches
+  resources :tickets
 
-  resources :projects
   get 'welcome/index'
 
   root 'welcome#index'

@@ -1,55 +1,29 @@
 <h1> Поиск билетов <h1>
-
-
-  <table>
-    <thead>
-      <%= form_for 'searches', method: :get do |f|%>
-      <tr>
-       <td>
-       <div class="field">
-          <%= f.label 'начальная станция' %>
-          <%= f.collection_select :start_station_id, RailwayStation.all, :id, :title, include_blank: true %>
-       </div>
-      </td>
-      <td>
-        <div class="field">
-          <%= f.label 'конечная станция' %>
-          <%= f.collection_select :end_station_id, RailwayStation.all, :id, :title, include_blank: true %>
-        </div>
-     </td>
-      <td>
-        <div class="actions">
-          <%= f.submit  "Искать"%>
-        </div>
-      </td>
-
-      </tr>
-      <% end %>
-    </thead>
-  </table>
-
+<%= render 'form_stations' %>
 
 <p>
-<% if @tickets.present? %>
-  <% @tickets.each do |ticket| %>
-    <table>
-      <tr>
-        <td>Отправление</td>
-        <td><%= ticket.train.route.railway_stations_routes.first.arrival_time%></td>
-      </tr>
-      <tr>
-        <td>Прибытие</td>
-        <td><%= ticket.train.route.railway_stations_routes.first.departure_time%></td>
-      </tr>
-      <tr>
-        <td> Список поездов:</td>
-      </tr>
-    </table>
-    <% ticket.train.route.trains.each do |t| %>
-      <ul>
-        <li><%= t.number %></li>
-      </ul>
+<% if @trains.present? %>
+
+  <table style="widtd:60%">
+  <tdead>
+    <tr>
+      <td> Поезд </td>
+      <td> Отравление </td>
+      <td> Прибытие </td>
+      <td> Покупка </td>
+    </tr>
+  </tdead>
+  <% @trains.each do |train| %>
+  <tbody>
+    <tr>
+      <td> <%= train.number %> </td>
+      <td> <%= train.route.railway_stations_routes.first.arrival_time %> </td>
+      <td> <%= train.route.railway_stations_routes.first.departure_time%> </td>
+      <td> <%= link_to 'Купить билет', new_ticket_path(train_id: train.id, start_station_id: @start_station.id, end_station_id: @end_station.id) %> </td>
+    </tr>
+  </tbody>
     <% end %>
-  <% end %>
+  </table>
 <% end %>
-</p>
+
+<%%>
