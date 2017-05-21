@@ -10,7 +10,8 @@
 
   <body>
     <%- unless current_page?(root_url) %>
-      <%= link_to('На главную', root_path) %>
+
+    <a href="http://localhost:3000/"> <%=image_tag("metro.jpg", height: '80', width: '80') %> </a>
     <%- end %>
     <%= yield %>
     <p>
