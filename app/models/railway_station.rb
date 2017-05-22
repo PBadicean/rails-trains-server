@@ -16,14 +16,9 @@ class RailwayStation < ApplicationRecord
     station_route(route).try(:station_position)
   end
 
-  def update_arrival_time(route, arrival_time)
+  def update_time(route, arrival_time, departure_time)
     station_route = station_route(route)
-    station_route.update(arrival_time: arrival_time) if station_route
-  end
-
-  def update_departure_time(route, departure_time)
-    station_route = station_route(route)
-    station_route.update(departure_time: departure_time) if station_route
+    station_route.update(arrival_time: arrival_time, departure_time: departure_time) if station_route
   end
 
   def time_in(route, time)
