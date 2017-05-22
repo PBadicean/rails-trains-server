@@ -14,11 +14,14 @@
     </tr>
   </tdead>
   <% @trains.each do |train| %>
+
+  <% start_time = train.route.railway_stations_routes.where(railway_station_id: @start_station.id).first%>
+  <% end_time = train.route.railway_stations_routes.where(railway_station_id: @end_station.id).first%>
   <tbody>
     <tr>
       <td> <%= train.number %> </td>
-      <td> <%= train.route.railway_stations_routes.first.arrival_time %> </td>
-      <td> <%= train.route.railway_stations_routes.first.departure_time%> </td>
+      <td> <%= start_time.arrival_time%> </td>
+      <td> <%= end_time.departure_time%> </td>
       <td> <%= link_to 'Купить билет', new_ticket_path(train_id: train.id, start_station_id: @start_station.id, end_station_id: @end_station.id) %> </td>
     </tr>
   </tbody>
