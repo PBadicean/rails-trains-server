@@ -1,4 +1,5 @@
 class CarsController < ApplicationController
+
   before_action :set_car, only: [ :show, :edit, :update, :destroy]
   before_action :set_train
 
@@ -54,4 +55,5 @@ class CarsController < ApplicationController
                                 :side_bottom_seats, :side_top_seats,
                                 :sedentery_seats, :number
   end
+  
 end

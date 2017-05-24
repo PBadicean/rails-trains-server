@@ -1,9 +1,0 @@
-<%@train.sorted_cars.each do |car| %>
-<tr>
-  <td><%= car.number %></td>
-  <td><%= car.type %></td>
-  <td><%= link_to 'Паказать', train_car_path(@train, car) %></td>
-  <td><%= link_to 'Редактировать', edit_train_car_path(@train, car) %></td>
-  <td><%= link_to 'Удалить', train_car_path(@train, car), method: :delete, data: { confirm: 'Вы уверены?' } %></td>
-</tr>
-<% end %>

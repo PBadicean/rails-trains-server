@@ -1,4 +1,5 @@
 class RoutesController < ApplicationController
+
   before_action :set_train, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -46,4 +47,5 @@ class RoutesController < ApplicationController
   def route_params
     params.require(:route).permit :name, railway_station_ids: []
   end
+  
 end

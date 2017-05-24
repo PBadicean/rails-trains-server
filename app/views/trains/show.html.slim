@@ -1,0 +1,22 @@
+p#notice= notice
+p
+  strong Номер:
+  = @train.number
+p
+  strong На станции:
+  - if @train.current_station.present?
+    = @train.current_station.title
+  - else
+    | Не указано
+p
+  strong Маршрут:
+  - if @train.route.present?
+    = @train.route.name
+  - else
+    | Не указан
+= link_to 'Назад', trains_path
+| \
+= link_to 'Редактировать', edit_train_path(@train)
+| \
+= link_to 'К вагонам', train_cars_path(@train)
+| \
