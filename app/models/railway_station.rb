@@ -1,4 +1,5 @@
 class RailwayStation < ApplicationRecord
+
   scope :ordered, -> { joins(:railway_stations_routes).order("railway_stations_routes.station_position").uniq }
 
   has_many :trains
@@ -30,4 +31,5 @@ class RailwayStation < ApplicationRecord
   def station_route(route)
     @station_route ||= railway_stations_routes.where(route: route).first
   end
+
 end

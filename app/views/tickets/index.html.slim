@@ -1,0 +1,11 @@
+p#notice= notice
+h1 Список купленных билетов
+table
+  thead
+    tr
+      th Маршрут
+      th colspan="3"
+  tbody
+    = render @tickets
+br/
+= link_to 'Купить билет', searches_path

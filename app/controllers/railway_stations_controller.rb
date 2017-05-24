@@ -1,4 +1,5 @@
 class RailwayStationsController < ApplicationController
+
   before_action :set_railway_station, only: [ :show, :edit, :update, :destroy,
                                               :update_station_position,
                                               :update_time ]
@@ -61,4 +62,5 @@ class RailwayStationsController < ApplicationController
   def railway_station_params
     params.require(:railway_station).permit :title
   end
+  
 end

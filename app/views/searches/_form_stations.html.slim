@@ -1,0 +1,17 @@
+table
+  thead
+    tr
+      td Выберите маршрут
+    = form_for 'searches', method: :get do |f|
+      tr
+        td
+          .field
+            = f.label 'начальная станция'
+            = f.collection_select :start_station_id, RailwayStation.all, :id, :title, include_blank: true
+        td
+          .field
+            = f.label 'конечная станция'
+            = f.collection_select :end_station_id, RailwayStation.all, :id, :title, include_blank: true
+        td
+          .actions
+            = f.submit  "Искать"
