@@ -1,5 +1,6 @@
 class TicketsController < ApplicationController
 
+  before_action :authenticate_user!, only: [:create, :edit]
   before_action :set_ticket, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -40,5 +41,5 @@ class TicketsController < ApplicationController
     params.require(:ticket).permit :start_station_id, :end_station_id,
                                    :first_name, :last_name, :passport, :train_id
   end
-  
+
 end

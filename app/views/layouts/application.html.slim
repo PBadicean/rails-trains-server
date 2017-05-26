@@ -9,6 +9,17 @@ html
   body
     - unless current_page?(root_url)
       = link_to image_tag("metro.jpg", height: '80', width: '80'), root_path
+      p#notice.notice= notice
+      p.alert= alert
+
+    - if user_signed_in?
+      = link_to 'Выйти', destroy_user_session_path, method: :delete
+      p
+        |Аккаунт:
+        =current_user.email
+    - else
+      = link_to 'Выйти', new_user_session_path
+
     = yield
     p
       | Создателем этой шаблонной страницы является Бадичан Полина.

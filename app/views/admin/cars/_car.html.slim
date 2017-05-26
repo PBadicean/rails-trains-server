@@ -1,0 +1,11 @@
+- @train.sorted_cars.each do |car|
+  tr
+    td= car.number
+    td= car.type
+    td= link_to 'Паказать', admin_train_car_path(@train, car)
+    td= link_to 'Редактировать', edit_admin_train_car_path(@train, car)
+    td
+      = link_to 'Удалить',
+        admin_train_car_path(@train, car),
+        method: :delete,
+        data:  { confirm: 'Вы уверены?' }
