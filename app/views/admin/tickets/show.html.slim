@@ -1,0 +1,14 @@
+p
+  strong Маршрут:
+  = @ticket.start_station.title
+  | - #{@ticket.end_station.title}
+p
+  strong Пользователь
+  = @ticket.user.email
+p
+  strong Имя покупателя
+  = @ticket.first_name
+  | - #{@ticket.last_name }
+
+= link_to 'Редактировать', edit_admin_ticket_path(@ticket)
+= link_to 'Назад', admin_tickets_path

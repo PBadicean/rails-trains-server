@@ -1,0 +1,10 @@
+tr
+  td
+    = ticket.start_station.title
+    | - #{ticket.end_station.title}
+  td= link_to 'Паказать',[:client, ticket]
+  td
+    = link_to 'Удалить',
+      [:client, ticket],
+      method: :delete,
+      data:  { confirm: 'Вы уверены?' }

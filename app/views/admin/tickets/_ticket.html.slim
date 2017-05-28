@@ -2,9 +2,10 @@ tr
   td
     = ticket.start_station.title
     | - #{ticket.end_station.title}
-  td= link_to 'Паказать', ticket
+  td= link_to 'Паказать',[:admin, ticket]
+  td= link_to 'Редактироать', edit_admin_ticket_path(ticket)
   td
     = link_to 'Удалить',
-      ticket,
+      [:admin, ticket],
       method: :delete,
       data:  { confirm: 'Вы уверены?' }

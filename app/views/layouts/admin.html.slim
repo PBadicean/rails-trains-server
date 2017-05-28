@@ -2,14 +2,16 @@ doctype html
 html
   head
     meta content=("text/html; charset=UTF-8") http-equiv="Content-Type" /
-    title Tutu
+    title Tutu-Admin
     = csrf_meta_tags
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   body
+    - unless current_page?(admin_root_path)
+      = link_to 'В меню', admin_root_path
 
-    p#notice.notice= notice
-    p.alert= alert
+      p#notice.notice= notice
+      p.alert= alert
 
     - if user_signed_in?
       = link_to 'Выйти', destroy_user_session_path, method: :delete
