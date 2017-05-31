@@ -1,13 +1,13 @@
-h1 Поиск билетов
+h1= t('common.search')
 = render 'form_stations'
 p
   - if @trains.present?
     table style="widtd:60%"
       tdead
         tr
-          td Поезд
-          td Отравление
-          td Прибытие
+          td= t('common.train')
+          td= t('common.arrival')
+          td= t('common.departure')
           td Покупка
       - @trains.each do |train|
         - start_time = train.route.railway_stations_routes.where(railway_station_id: @start_station.id).first
@@ -21,4 +21,4 @@ p
             td
               = end_time.departure_time
             td
-              = link_to 'Купить билет', new_client_ticket_path(train_id: train.id, start_station_id: @start_station.id, end_station_id: @end_station.id)
+              = link_to t('common.buy_ticket'), new_client_ticket_path(train_id: train.id, start_station_id: @start_station.id, end_station_id: @end_station.id)

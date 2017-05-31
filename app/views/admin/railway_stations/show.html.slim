@@ -1,6 +1,6 @@
 p#notice= notice
 p
-  strong = t('.title')
+  strong= t('common.name')
   = @railway_station.title
 = link_to t('common.edit'), edit_admin_railway_station_path(@railway_station)
 = link_to t('common.back'), admin_railway_stations_path
