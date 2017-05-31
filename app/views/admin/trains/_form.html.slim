@@ -1,7 +1,7 @@
 = form_for([:admin, @train]) do |f|
   = render 'common/errors', resource: @train
   .field
-    = f.label :number, t('.number')
+    = f.label :number, t('common.number')
     = f.number_field :number
   .field
     = f.label :current_station, t('common.current_station')

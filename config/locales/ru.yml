@@ -1,16 +1,26 @@
 ru:
   common:
+    resources: 'Ресурсы'
+    go_to: 'Перейти на'
     back: 'Назад'
     errors: 'При заполнении формы возникли ошибки'
     create: 'Создать'
     show: 'Показать'
     edit: 'Редактировать'
+    change: 'Изменить'
     delete: 'Удалить'
     shure?: 'Вы уверены?'
+    name: 'Название'
+    number: 'Номер'
     railway_stations: 'Станции'
     current_station: 'Текущая станция'
+    start_station: 'Начальная станция'
+    end_station: 'Конечная станция'
     train: 'Поезд'
     trains: 'Поезда'
+    routes: 'Маршруты'
+    route: 'Маршрут'
+    tickets: 'Вагоны'
     cars: 'Вагоны'
     car_type: 'Тип вагона'
     top_seats: 'Верхние места'
@@ -18,44 +28,92 @@ ru:
     side_top_seats: 'Верхние боковые места'
     side_bottom_seats: 'Нижние боковые места'
     sedentery_seats: 'Сидячие места'
+    choice: 'Выберите маршрут'
+    find: 'Искать'
+    search: 'Поиск билетов'
+    arrival: 'Отправление'
+    departure: 'Прибытие'
+    buy_ticket: 'Купить билет'
+
   admin:
     railway_stations:
       index:
-        title: 'Название'
-        create: 'Новая станция'
+        create: 'Добавить станцию'
       new:
-        title: 'Новая станция'
+        new: 'Новая станция'
       edit:
-        title: 'Измение станции'
-      show:
-        title: 'Название'
+        edit: 'Измение станции'
       form:
         submit: '%{action} станцию'
     trains:
       index:
-        number: 'Номер'
         new_train: 'Новый поезд'
       show:
-        number: 'Номер:'
         empty_station: 'Станция не назначена'
         empty_route: 'Маршрут не назначен'
         cars: 'К вагонам'
       edit:
-        title: 'Редактирование'
-      new:
+        edit: 'Редактирование'
       form:
-        number: 'Номер поезда'
         submit: '%{action} поезд'
         car_numbering: 'Нумерация вагонов:'
     cars:
       index:
-        number: 'Номер'
         new_car: 'Добавить вагон'
       edit:
-        edit: 'Изменение вагона'
+         edit: 'Изменение вагона'
       new:
         new: 'Новый вагон'
       show:
         to_train: 'К поезду'
       form:
         submit: '%{action} вогон'
+    routes:
+      index:
+        new_route: 'Добавить маршурт'
+      edit:
+        edit: 'Изменение маршурта'
+      new:
+        new: 'Новый маршрут'
+      show:
+        empty_trans: 'На данном маршруте ни одного поезда'
+        empty_stations: 'На данном маршруте ни одной станции'
+        position: 'Позиция'
+        ar_time: 'Время отправления'
+        dep_time: 'Время прибытия'
+      form:
+        submit: '%{action} маршрут'
+
+    tickets:
+      index:
+        bought_tickets: 'Список купленных билетов'
+        new_ticket: 'Купить билет'
+      edit:
+        edit: 'Изменение билета'
+      new:
+        new: 'Покупка билета'
+      show:
+        user: 'Пользователь'
+        name_byer: 'Имя покупателя'
+      form:
+        user: 'Какому клиенту'
+        for_client: 'Для клиента'
+        name: 'Имя'
+        surname: 'Фамилия'
+        passport: 'Номер пасспорта'
+        submit: '%{action}'
+  client:
+    tickets:
+      index:
+        bought_tickets: 'Список купленных билетов'
+        new_ticket: 'Купить билет'
+      new:
+        new: 'Покупка билета'
+      show:
+        user: 'Пользователь'
+        name_byer: 'Имя покупателя'
+      form:
+        name: 'Имя'
+        surname: 'Фамилия'
+        passport: 'Номер пасспорта'
+        submit: 'Купить билет'

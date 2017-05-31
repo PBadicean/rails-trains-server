@@ -1,12 +1,12 @@
 p
-  strong Маршрут:
+  strong= t('common.route')
   = @ticket.start_station.title
   | - #{@ticket.end_station.title}
 p
-  strong Пользователь
+  strong= t('.user')
   = @ticket.user.email
 p
-  strong Имя покупателя
+  strong= t('.name_byer')
   = @ticket.first_name
   | - #{@ticket.last_name }
 

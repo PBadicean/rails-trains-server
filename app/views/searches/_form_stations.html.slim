@@ -1,17 +1,17 @@
 table
   thead
     tr
-      td Выберите маршрут
+      td= t('common.choice')
     = form_for 'searches', method: :get do |f|
       tr
         td
           .field
-            = f.label 'начальная станция'
+            = f.label t('common.start_station')
             = f.collection_select :start_station_id, RailwayStation.all, :id, :title, include_blank: true
         td
           .field
-            = f.label 'конечная станция'
+            = f.label t('common.end_station')
             = f.collection_select :end_station_id, RailwayStation.all, :id, :title, include_blank: true
         td
           .actions
-            = f.submit  "Искать"
+            = f.submit t('common.find')

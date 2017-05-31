@@ -1,10 +1,10 @@
-h1 Список купленных билетов Администатратор
+h1= t('.bought_tickets')
 table
   thead
     tr
-      th Маршрут
+      th= t('common.route')
       th colspan="3"
   tbody
     = render @tickets
 br
-= link_to 'Купить билет ', new_admin_ticket_path
+= link_to t('.new_ticket'), new_admin_ticket_path

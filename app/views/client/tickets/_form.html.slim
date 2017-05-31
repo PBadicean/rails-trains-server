@@ -7,13 +7,13 @@
   .field
     = f.hidden_field :end_station_id, value: params[:end_station_id]
   .field
-    = f.label :first_name, 'Имя'
+    = f.label :first_name, t('.name')
     = f.text_field :first_name
   .field
-    = f.label :last_name, 'Фамилия'
+    = f.label :last_name, t('.surname')
     = f.text_field :last_name
   .field
-    = f.label :passport, 'Номер пасспорта'
+    = f.label :passport, t('.passport')
     = f.text_field :passport
   .actions
-    = f.submit 'Купить'
+    = f.submit t('.submit')
