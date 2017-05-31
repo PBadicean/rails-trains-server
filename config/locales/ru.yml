@@ -12,6 +12,12 @@ ru:
     train: 'Поезд'
     trains: 'Поезда'
     cars: 'Вагоны'
+    car_type: 'Тип вагона'
+    top_seats: 'Верхние места'
+    bottom_seats: 'Нижние места'
+    side_top_seats: 'Верхние боковые места'
+    side_bottom_seats: 'Нижние боковые места'
+    sedentery_seats: 'Сидячие места'
   admin:
     railway_stations:
       index:
@@ -44,18 +50,12 @@ ru:
     cars:
       index:
         number: 'Номер'
-        type: 'Тип'
         new_car: 'Добавить вагон'
       edit:
         edit: 'Изменение вагона'
       new:
         new: 'Новый вагон'
       show:
-        car_type: 'Тип вагона '
         to_train: 'К поезду'
-      coupe_car:
-        top_seats: 'Верхние места'
-        bottom_seats: 'Нижние места'
-      econome_car:
-      sedentery_car:
-      sleep_car:
+      form:
+        submit: '%{action} вогон'
