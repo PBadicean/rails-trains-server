@@ -1,13 +1,12 @@
-p#notice= notice
-h1 Список вагонов
+h1= t('common.cars')
 table
   thead
     tr
-      th Номер
-      th Тип
+      th= t('.number')
+      th= t('.title')
       th colspan="3"
   tbody
     = render 'car', resource: @cars
 br
-= link_to 'Назад', admin_train_path(@train)
-= link_to "Добавить вагон", new_admin_train_car_path(@train)
+= link_to t('common.back'), admin_train_path(@train)
+= link_to t('.new_car'), new_admin_train_car_path(@train)

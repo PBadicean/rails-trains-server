@@ -1,16 +1,16 @@
 = form_for([:admin, @train]) do |f|
   = render 'common/errors', resource: @train
   .field
-    = f.label :number, 'Номер'
+    = f.label :number, t('.number')
     = f.number_field :number
   .field
-    = f.label :current_station, 'Текущая станция'
+    = f.label :current_station, t('common.current_station')
     = f.collection_select :current_station_id, RailwayStation.all, :id, :title
   .field
-    = f.label :route, 'Маршрут'
+    = f.label :route, t('common.route')
     = f.collection_select :route_id, Route.all, :id, :name
   .field
-    = f.label :choice, 'Выбор сортировки'
+    = f.label :choice, t('common.car_numbering')
     = f.select :choice, [['С головы', true], ['С хвоста', false]]
   .actions
-    = f.submit
+    = f.submit t('.submit', action: @train.new_record? ? 'Создать' : 'Изменить')

@@ -1,7 +1,7 @@
 p#notice= notice
 p
-  strong Тип:
+  strong= t('.car_type')
   = @car.type
 = render @car.type.underscore
-= link_to 'К поезду', admin_train_path(@train)
-= link_to 'Назад', admin_train_cars_path(@train)
+= link_to t('.to_train'), admin_train_cars_path(@train, car)
+= link_to t('common.back'), admin_train_cars_path(@train)

@@ -2,10 +2,10 @@
   tr
     td= car.number
     td= car.type
-    td= link_to 'Паказать', admin_train_car_path(@train, car)
-    td= link_to 'Редактировать', edit_admin_train_car_path(@train, car)
+    td= link_to t('common.show'), admin_train_cars_path(@train, car)
+    td= link_to t('common.edit'), edit_admin_car_path(car)
     td
-      = link_to 'Удалить',
-        admin_train_car_path(@train, car),
+      = link_to t('common.delete'),
+        admin_train_cars_path(@train, car),
         method: :delete,
-        data:  { confirm: 'Вы уверены?' }
+        data:  { confirm: t('common.shure?') }

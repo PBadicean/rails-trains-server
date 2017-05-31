@@ -1,19 +1,22 @@
 p#notice= notice
 p
-  strong Номер:
+  strong = t('.number')
   = @train.number
 p
-  strong На станции:
+  strong= t('common.current_station')
   - if @train.current_station.present?
-    = @train.current_station.title
+      = link_to "#{@train.current_station.title}", [:admin, @train.current_station]
   - else
-    | Не указано
+      = t('.empty_station')
 p
-  strong Маршрут:
+  strong= t('common.route')
   - if @train.route.present?
-    = @train.route.name
+      = link_to "#{@train.route.name}", [:admin, @train.route]
   - else
-    | Не указан
-= link_to 'Назад', admin_trains_path
-= link_to 'Редактировать', edit_admin_train_path(@train)
-= link_to 'К вагонам', admin_train_cars_path(@train)
+      = t('.empty_route')
+table
+  thead
+    tr
+      td= link_to t('common.back'), admin_trains_path
+      td= link_to t('common.edit'), edit_admin_train_path(@train)
+      td= link_to t('.cars'), admin_train_cars_path(@train)
