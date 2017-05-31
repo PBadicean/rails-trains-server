@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :trains do
-      resources :cars, shallow: true
+      resources :cars
     end
 
     resources :railway_stations do
