@@ -1,10 +1,10 @@
-h1 Список станций
+h1  = t('common.railway_stations')
 table
   thead
     tr
-      th Имя
+      th = t('.title')
       th colspan="3"
   tbody
     = render @railway_stations
 br
-= link_to 'Новая ЖД станция', new_admin_railway_station_path
+= link_to t('.create'), new_admin_railway_station_path

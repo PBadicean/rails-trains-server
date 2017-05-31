@@ -1,0 +1,61 @@
+ru:
+  common:
+    back: 'Назад'
+    errors: 'При заполнении формы возникли ошибки'
+    create: 'Создать'
+    show: 'Показать'
+    edit: 'Редактировать'
+    delete: 'Удалить'
+    shure?: 'Вы уверены?'
+    railway_stations: 'Станции'
+    current_station: 'Текущая станция'
+    train: 'Поезд'
+    trains: 'Поезда'
+    cars: 'Вагоны'
+  admin:
+    railway_stations:
+      index:
+        title: 'Название'
+        create: 'Новая станция'
+      new:
+        title: 'Новая станция'
+      edit:
+        title: 'Измение станции'
+      show:
+        title: 'Название'
+      form:
+        submit: '%{action} станцию'
+    trains:
+      index:
+        number: 'Номер'
+        new_train: 'Новый поезд'
+      show:
+        number: 'Номер:'
+        empty_station: 'Станция не назначена'
+        empty_route: 'Маршрут не назначен'
+        cars: 'К вагонам'
+      edit:
+        title: 'Редактирование'
+      new:
+      form:
+        number: 'Номер поезда'
+        submit: '%{action} поезд'
+        car_numbering: 'Нумерация вагонов:'
+    cars:
+      index:
+        number: 'Номер'
+        type: 'Тип'
+        new_car: 'Добавить вагон'
+      edit:
+        edit: 'Изменение вагона'
+      new:
+        new: 'Новый вагон'
+      show:
+        car_type: 'Тип вагона '
+        to_train: 'К поезду'
+      coupe_car:
+        top_seats: 'Верхние места'
+        bottom_seats: 'Нижние места'
+      econome_car:
+      sedentery_car:
+      sleep_car:
