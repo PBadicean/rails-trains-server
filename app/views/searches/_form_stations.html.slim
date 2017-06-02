@@ -1,17 +1,8 @@
-table
-  thead
-    tr
-      td= t('common.choice')
-    = form_for 'searches', method: :get do |f|
-      tr
-        td
-          .field
-            = f.label t('common.start_station')
-            = f.collection_select :start_station_id, RailwayStation.all, :id, :title, include_blank: true
-        td
-          .field
-            = f.label t('common.end_station')
-            = f.collection_select :end_station_id, RailwayStation.all, :id, :title, include_blank: true
-        td
-          .actions
-            = f.submit t('common.find')
+.row
+  = form_for 'searches', method: :get do
+    .col-md-4
+      = select_tag :start_station, options_from_collection_for_select(RailwayStation.all, :id, :title), class: 'form-control'
+    .col-md-4
+      = select_tag :end_station, options_from_collection_for_select(RailwayStation.all, :id, :title), class: 'form-control'
+    .col-md-4
+      = submit_tag "Найти", class: 'btn btn-primary find'
