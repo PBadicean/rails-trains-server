@@ -20,7 +20,7 @@ ru:
     trains: 'Поезда'
     routes: 'Маршруты'
     route: 'Маршрут'
-    tickets: 'Вагоны'
+    tickets: 'Билеты'
     cars: 'Вагоны'
     car_type: 'Тип вагона'
     top_seats: 'Верхние места'
