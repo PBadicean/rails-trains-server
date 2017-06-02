@@ -22,7 +22,3 @@ p
               = end_time.departure_time
             td
               = link_to t('common.buy_ticket'), new_client_ticket_path(train_id: train.id, start_station_id: @start_station.id, end_station_id: @end_station.id)
-
-    .list-group
-      - if user_signed_in?
-        = nav_link 'Мои билеты', client_tickets_path
