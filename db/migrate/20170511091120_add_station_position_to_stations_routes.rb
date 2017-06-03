@@ -1,4 +1,4 @@
-class AddStationstation_positionToStationsRoutes < ActiveRecord::Migration[5.0]
+class AddStationPositionToStationsRoutes < ActiveRecord::Migration[5.0]
   def change
       add_column :railway_stations_routes, :station_position, :integer
   end
