@@ -1,7 +1,11 @@
 class RailwayStation < ApplicationRecord
 
-  scope :ordered, -> { joins(:railway_stations_routes).order("railway_stations_routes.station_position").uniq }
 
+  scope :ordered, -> { select('railway_stations.*,
+     railway_stations_routes.station_position')
+     .joins(:railway_stations_routes)
+     .order('railway_stations_routes.station_position').distinct }
+     
   has_many :trains
   has_many :railway_stations_routes
   has_many :routes, through: :railway_stations_routes
