@@ -9,11 +9,12 @@ p
       ul
         li= train.number
   - else
-    |= t('.empty_trains')
+    = t('.empty_trains')
+
 p
   strong= t('common.railway_stations')
   - if @route.railway_stations.empty?
-    |= t('.empty_stations')
+    = t('.empty_stations')
   - else
     table
       thead
@@ -42,5 +43,5 @@ p
                 = hidden_field_tag :route_id, @route.id
                 = submit_tag t('common.change')
 
-= link_to t('common.edit'), edit_admin_railway_station_path(@route)
+= link_to t('common.edit'), edit_admin_route_path(@route)
 = link_to t('common.back'), admin_routes_path

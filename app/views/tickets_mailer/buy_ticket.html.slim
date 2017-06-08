@@ -1,0 +1,4 @@
+p #{t('common.hi')} #{@user.first_name}
+p #{t('common.buy')} #{@ticket.route_name}
+p #{t('common.show_ticket')} #{link_to t('common.here'), [:client, @ticket]}
+p #{t('common.show_tickets')} #{link_to t('common.here'), client_tickets_url}
