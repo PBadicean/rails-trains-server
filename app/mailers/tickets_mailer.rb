@@ -13,4 +13,5 @@
 
     mail(to: user.email, subject: 'Ваш билет онулирован')
   end
+  
 end
