@@ -1,24 +1,22 @@
 h1= t('common.search')
 = render 'form_stations'
-p
-  - if @trains.present?
-    table style="widtd:60%"
-      tdead
-        tr
-          td= t('common.train')
+
+
+- if @trains
+  .row
+    .col-md-12
+      table { class='table table-hover' }
+        thead
+          th = t('common.train')
           td= t('common.arrival')
           td= t('common.departure')
-          td Покупка
-      - @trains.each do |train|
-        - start_time = train.route.railway_stations_routes.where(railway_station_id: @start_station.id).first
-        - end_time = train.route.railway_stations_routes.where(railway_station_id: @end_station.id).first
         tbody
-          tr
-            td
-              = train.number
-            td
-              = start_time.arrival_time
-            td
-              = end_time.departure_time
-            td
-              = link_to t('common.buy_ticket'), new_client_ticket_path(train_id: train.id, start_station_id: @start_station.id, end_station_id: @end_station.id)
+          - @trains.each do |train|
+            - start_time = train.route.railway_stations_routes.where(railway_station_id: @start_station.id).first
+            - end_time = train.route.railway_stations_routes.where(railway_station_id: @end_station.id).first
+            tr
+              td = train.number
+              td = start_time.arrival_time
+              td = end_time.departure_time
+              td = link_to t('common.buy_ticket'), new_client_ticket_path(train_id: train.id,
+                start_station_id: @start_station.id, end_station_id: @end_station.id)
