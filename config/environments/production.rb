@@ -83,7 +83,7 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
-  
+
   config.action_mailer.smtp_settings = {
     address:              'smtp.gmail.com',
     port:                 587,
@@ -93,5 +93,5 @@ Rails.application.configure do
     authentication:       :plain,
     enable_starttls_auto: true
   }
-
+  config.action_mailer.default_url_options = { host: "stormy-ravine-64221.herokuapp.com"}
 end
