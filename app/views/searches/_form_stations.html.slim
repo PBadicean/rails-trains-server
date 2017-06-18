@@ -1,13 +1,7 @@
-= form_for 'searches', method: :get do |f|
-  table
-    thead
-      tr
-        td
-          .field
-            = f.collection_select :start_station_id, RailwayStation.all, :id, :title, include_blank: true
-        td
-          .field
-            = f.collection_select :end_station_id, RailwayStation.all, :id, :title, include_blank: true
-        td
-          .actions
-            = f.submit  t('common.find')
+  tr
+    = form_tag searches_path, method: :get, class: 'search_form' do
+      td = select_tag :start_station,
+           options_from_collection_for_select(RailwayStation.all, :id, :title, params[:start_station]), {class: 'form-control'}
+      td = select_tag :end_station,
+           options_from_collection_for_select(RailwayStation.all, :id, :title, params[:end_station]), {class: 'form-control'}
+      td = submit_tag t('common.find'), class: 'btn btn-primary'

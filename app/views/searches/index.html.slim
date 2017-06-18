@@ -1,22 +1,33 @@
 h1= t('common.search')
-= render 'form_stations'
 
+br
 
-- if @trains
-  .row
-    .col-md-12
-      table { class='table table-hover' }
-        thead
-          th = t('common.train')
-          td= t('common.arrival')
-          td= t('common.departure')
-        tbody
-          - @trains.each do |train|
-            - start_time = train.route.railway_stations_routes.where(railway_station_id: @start_station.id).first
-            - end_time = train.route.railway_stations_routes.where(railway_station_id: @end_station.id).first
-            tr
-              td = train.number
-              td = start_time.arrival_time
-              td = end_time.departure_time
-              td = link_to t('common.buy_ticket'), new_client_ticket_path(train_id: train.id,
-                start_station_id: @start_station.id, end_station_id: @end_station.id)
+table
+  thead
+    tr
+      th width='200px' Отпрвление
+      th width='200px' Прибытие
+  tbody
+  = render 'form_stations'
+
+br
+br
+
+- if @search.present?
+  table class="table"
+    thead class="thead-default"
+      tr
+        th = t('common.train')
+        th= t('common.arrival')
+        th= t('common.departure')
+    tbody
+      - @search.trains.each do |train|
+        - start_time = @search.start_station.time_in(train.route, :arrival_time)
+        - end_time = @search.start_station.time_in(train.route, :departure_time)
+
+        tr
+          td = train.number
+          td = start_time
+          td = end_time
+          td = button_to  t('common.buy_ticket'),new_client_ticket_path, class: 'btn btn-primary', method: :get,
+              params: {train_id: train.id, start_station_id: @search.start_station.id, end_station_id: @search.end_station.id}

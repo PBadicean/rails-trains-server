@@ -1,5 +1,5 @@
-= form_for([:admin, @train]) do |f|
-  = render 'common/errors', resource: @train
+= form_for [:admin, train], html: {style: "display: #{hidden ? 'none' : 'block'}"} do |f|
+  = render 'common/errors', resource: train
   .field
     = f.label :number, t('common.number')
     = f.number_field :number
@@ -13,4 +13,4 @@
     = f.label :choice, t('common.car_numbering')
     = f.select :choice, [['С головы', true], ['С хвоста', false]]
   .actions
-    = f.submit t('.submit', action: @train.new_record? ? 'Создать' : 'Изменить')
+    = f.submit t('.submit', action: train.new_record? ? 'Создать' : 'Изменить')
